@@ -27,7 +27,7 @@ A web app that lets users view, save and leave comments/notes on the latest news
    
    8. mongose-find-create
    
- 3. Run `npm start` to strat application.
+ 3. Run `npm start` to start application.
  
  4. Open tour browser and nvaigate to http://localhost:3000
  
