@@ -25,7 +25,7 @@ A web app that lets users view, save and leave comments/notes on the latest news
    
    7. body-parser
    
-   8. mongose-find-create
+   8. mongoose-find-or-create
    
  3. Run `npm start` to start application.
  
