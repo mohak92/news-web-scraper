@@ -31,6 +31,6 @@ A web app that lets users view, save and leave comments/notes on the latest news
  
  4. Open tour browser and nvaigate to http://localhost:3000
  
- 5. Click on Scrape article to get articles, clik on save
+ 5. Click on Scrape article to get articles, click on save
  
  6. Click on saved articles button to view saved articles and add/delete comments or notes for every article.
