@@ -59,4 +59,17 @@ module.exports = function (app) {
             res.send("Scrape completed!");
         });
     });
+
+    // clear all articles from database
+    app.get("/api/clear", function (req, res) {
+        console.log(req.body)
+        db.Article.deleteMany({}, function (err, result) {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log(result)
+                res.send(true)
+            }
+        })
+    });
 }
