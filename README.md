@@ -2,7 +2,7 @@
 
 ### Overview
 
-A web app that lets users view, save and leave comments/notes on the latest news. Artilces are scraped from a website and stored in database mongoDB using an OMB (Object Document Model) mongoose and node.js. [Click here](https://www.google.com) to launch deployed application.
+A web app that lets users view, save and leave comments/notes on the latest news. Artilces are scraped from a website and stored in database mongoDB using an OMB (Object Document Model) mongoose and node.js. [Click here](https://shrouded-forest-52247.herokuapp.com) to launch deployed application.
 ##### Envirmonment: Node.js, Express.js, MongoDB, Handlebars
 
 ### Local Setup
