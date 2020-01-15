@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $(document).on("click", ".scrape-new", handleArticleScrape);
+    $(document).on("click", ".clear", handleArticleClear);
 
     function handleArticleScrape() {
         // This function handles the user clicking any "scrape new article" buttons
@@ -12,6 +13,15 @@ $(document).ready(function() {
           // data.message = "Scrape completed!"
           // bootbox.alert($("<h3 class='text-center m-top-80'>").text(data.message));
           window.location.href = "/";
+        });
+      }
+
+      function handleArticleClear() {
+        $.get("api/clear").then(function(data) {
+          console.log(data)
+          articleContainer.empty();
+          // initPage();
+          location.reload();
         });
       }
 });
