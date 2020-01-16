@@ -60,7 +60,7 @@ module.exports = function (app) {
         });
     });
 
-    // clear all articles from database
+    // clear all articles from collection
     app.get("/api/clear", function (req, res) {
         console.log(req.body)
         db.Article.deleteMany({}, function (err, result) {
