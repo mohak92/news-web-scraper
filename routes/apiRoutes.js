@@ -60,7 +60,19 @@ module.exports = function (app) {
         });
     });
 
-    // clear all articles from collection
+    // route to saved artcles page
+
+    // save article
+
+    // add note
+
+    // display all notes
+
+    // delete note by id - delete a single note
+
+    // delete article by id - delete single article
+
+    // delete all articles from collection
     app.get("/api/clear", function (req, res) {
         console.log(req.body)
         db.Article.deleteMany({}, function (err, result) {
