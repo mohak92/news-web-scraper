@@ -61,6 +61,11 @@ module.exports = function (app) {
     });
 
     // route to saved artcles page
+    app.get('/saved', function (req, res) {
+        db.Article.find({ saved: true }, function (err, data) {
+            res.render('savedArticles', { home: false, article: data });
+        })
+    });
 
     // save article
 
