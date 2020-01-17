@@ -3,8 +3,9 @@ $(document).ready(function () {
   $(document).on("click", ".clear", clearArticle);
   $(document).on("click", ".save", saveArticle);
 
+  // This function handles the user clicking any "scrape new article" buttons
   function scrapeArticle() {
-    // This function handles the user clicking any "scrape new article" buttons
+    $(".article-container").prepend( '<div class="loader"></div>' );
     $.get("/api/fetch").then(function (data) {
       console.log(data)
       setTimeout(
