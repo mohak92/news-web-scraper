@@ -85,12 +85,33 @@ module.exports = function (app) {
 
     // delete note by id - delete a single note
 
-    // delete article by id - delete single article
+    // delete saved article by id - delete single article
+    app.get("/api/deleteSaved/:id", function (req, res) {
+        db.Article.deleteOne({_id: req.params.id}, function (err, result) {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log(result)
+                res.send(true)
+            }
+        })
+    });
 
-    // delete all articles from collection
+    // delete all articles from collection which are not saved
     app.get("/api/clear", function (req, res) {
-        console.log(req.body)
-        db.Article.deleteMany({}, function (err, result) {
+        db.Article.deleteMany({saved:false}, function (err, result) {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log(result)
+                res.send(true)
+            }
+        })
+    });
+
+    // delete all articles from collection which are saved
+    app.get("/api/clear/saved", function (req, res) {
+        db.Article.deleteMany({saved:true}, function (err, result) {
             if (err) {
                 console.log(err)
             } else {
