@@ -68,6 +68,16 @@ module.exports = function (app) {
     });
 
     // save article
+    app.put("/api/save/:id", function(req, res){
+        console.log(req.params.id);
+          db.Article.updateOne({_id: req.params.id},{$set: {saved:true}}, function(err, result){
+          if (err) {
+            console.log(err)
+          } else {
+            return res.send(true)
+          }
+        });
+      });
 
     // add note
 
