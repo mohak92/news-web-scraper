@@ -10,6 +10,11 @@
     float: right;
 }
 
+.delete, .notes {
+  float: right;
+  margin: 5px;
+}
+
 .nav-item {
     margin: 5px;
 }
