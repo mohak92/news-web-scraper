@@ -1,7 +1,9 @@
 $(document).ready(function () {
   $(document).on("click", ".scrape-new", scrapeArticle);
   $(document).on("click", ".clear", clearArticle);
+  $(document).on("click", ".clear-saved", clearSavedArticle);
   $(document).on("click", ".save", saveArticle);
+  $(document).on("click", ".delete", deleteSavedArticle);
 
   // This function handles the user clicking any "scrape new article" buttons
   function scrapeArticle() {
@@ -15,9 +17,18 @@ $(document).ready(function () {
     });
   }
 
-  //This function sends request to server to delete article in the collection
+  //This function sends request to server to delete unsaved article in the collection
   function clearArticle() {
     $.get("/api/clear").then(function (data) {
+      console.log(data)
+      $(".articleContainer").empty();
+      location.reload();
+    });
+  }
+
+  //This function sends request to server to delete unsaved article in the collection
+  function clearSavedArticle() {
+    $.get("/api/clear/saved").then(function (data) {
       console.log(data)
       $(".articleContainer").empty();
       location.reload();
@@ -43,5 +54,20 @@ $(document).ready(function () {
     }).then(function(data) {
       console.log(data);
     });
+  }
+
+  //this function called when user wants to delete specific article
+  function deleteSavedArticle() {
+    // get ID od the article to save
+    var articleID = $(this)
+    .parents(".card")
+    .data();
+
+    // removes article from saved page.
+    $(this)
+    .parents(".card")
+    .remove();
+
+    $.get("/api/deleteSaved/"+articleID._id);
   }
 });
