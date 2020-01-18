@@ -26,6 +26,22 @@ $(document).ready(function () {
 
   //This function is called when user click save article, send a request to server to update the document in collection to be saved.
   function saveArticle() {
+    // get ID od the article to save
+    var articleID = $(this)
+    .parents(".card")
+    .data();
 
+    // removes article from home page. the article is available on Saved page.
+    $(this)
+    .parents(".card")
+    .remove();
+
+    // put method to update in database to save article for comments
+    $.ajax({
+      method: "PUT",
+      url: "/api/save/" + articleID._id
+    }).then(function(data) {
+      console.log(data);
+    });
   }
 });
