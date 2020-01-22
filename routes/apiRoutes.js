@@ -81,7 +81,7 @@ module.exports = function (app) {
 
     // add note to an article
     app.post("/api/notes", function (req, res) {
-        console.log(req.body)
+        console.log("inside /api/notes/ " + req.body.noteText)
         // Create a new note and pass the req.body to the entry
         db.Note.create({ noteText: req.body.noteText })
             .then(function (dbNote) {
