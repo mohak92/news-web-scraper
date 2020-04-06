@@ -13,7 +13,7 @@ module.exports = function (app) {
     app.get('/', function (req, res) {
         db.Article.find({ saved: false }, function (err, data) {
             res.render('index', { home: true, article: data });
-        })
+        }).lean();
     });
 
     // scrape articles
@@ -64,7 +64,7 @@ module.exports = function (app) {
     app.get('/saved', function (req, res) {
         db.Article.find({ saved: true }, function (err, data) {
             res.render('savedArticles', { home: false, article: data });
-        })
+        }).lean();
     });
 
     // save article
