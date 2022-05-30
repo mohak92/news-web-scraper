@@ -24,13 +24,13 @@ module.exports = function (app) {
             // Then, we load that into cheerio and save it to $ for a shorthand selector
             const $ = cheerio.load(response.data);
 
-            // Now, we grab every h2 within an article tag, and do the following:
-            $("article").each(function (i, element) {
+            // Now, we grab every h3 within an section tag, and do the following:
+            $("section").each(function (i, element) {
 
                 // Save an empty result object
                 var result = {};
-                result.headline = $(element).find("h2").text().trim();
-                result.url = 'https://www.nytimes.com' + $(element).find("a").attr("href");
+                result.headline = $(element).find("h3").text().trim();
+                result.url = $(element).find("a").attr("href");
                 result.summary = $(element).find("p").text().trim();
 
                 if (result.headline !== '' && result.summary !== '') {
