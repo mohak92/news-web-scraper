@@ -24,14 +24,14 @@ module.exports = function (app) {
             // Then, we load that into cheerio and save it to $ for a shorthand selector
             const $ = cheerio.load(response.data);
 
-            // Now, we grab every h3 within an section tag, and do the following:
+            // Now, we grab every p within an section tag, and do the following:
             $("section").each(function (i, element) {
 
                 // Save an empty result object
                 var result = {};
-                result.headline = $(element).find("h3").text().trim();
+                result.headline = $(element).find("p.indicate-hover").text().trim();
                 result.url = $(element).find("a").attr("href");
-                result.summary = $(element).find("p").text().trim();
+                result.summary = $(element).find("p.summary-class").text().trim();
 
                 if (result.headline !== '' && result.summary !== '') {
                     db.Article.findOne({ headline: result.headline }, function (err, data) {
